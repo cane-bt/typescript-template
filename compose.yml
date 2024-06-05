@@ -1,8 +1,10 @@
 services:
-  node-dev:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
-    tty: true
     volumes:
       - .:/app
+    ports:
+      - 3000:3000
+    command: npm start

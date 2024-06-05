@@ -16,3 +16,8 @@ TypeScriptがJavaScriptのデファクトスタンダードになりつつある
 
 Dockerを使用してTypeScriptの環境構築を行う（とりあえず動けば良い）
 > [Node(typescript) + docker 環境構築メモ](https://zenn.dev/gakin/scraps/4cc16e7761d1ef)
+
+<!-- 
+面白そう
+[microsoft/TypeScript-Node-Starter: TypeScript と Node のリファレンス例。この 2 つを一緒に使用する方法を説明した詳細な README が含まれています。](https://github.com/microsoft/TypeScript-Node-Starter)
+ -->

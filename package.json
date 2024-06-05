@@ -1,22 +1,10 @@
 {
-  "name": "app",
-  "version": "1.0.0",
-  "description": "## Why",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode=development",
+    "start": "webpack serve --mode=development"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/toshi-ue/typescript-setup.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/toshi-ue/typescript-setup/issues"
-  },
-  "homepage": "https://github.com/toshi-ue/typescript-setup#readme",
   "devDependencies": {
+    "@types/bonjour": "^3.5",
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.5",
     "webpack": "^5.91.0",
