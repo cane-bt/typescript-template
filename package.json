@@ -4,7 +4,6 @@
     "start": "webpack serve --mode=development"
   },
   "devDependencies": {
-    "@types/bonjour": "^3.5",
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.5",
     "webpack": "^5.91.0",
