@@ -21,6 +21,7 @@ start:
 setup:
 	brew install make
 	@make build
+	@make up-background
 up:
 	docker compose up
 up-background:
