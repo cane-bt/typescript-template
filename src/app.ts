@@ -1,15 +1,20 @@
-// private & public 修飾子
+// 63.プロパティ初期化のショートカット構文
 class Department {
-    name: string;
+    // constructorを使用することで省略できる
+    // private id: string
+    // name: string;
     // privateをつけることで外部からアクセスできないようにできる
     private employees: string[] = [];
 
-    constructor(n: string) {
-        this.name = n;
+    // constructorに初期値を設定するだけで良い
+    constructor(private id: string, public name: string) {
+        // 以下も記述する必要がなくなる
+        // this.id = id;
+        // this.name = name;
     }
 
     describe(this: Department) {
-        console.log('Department: ' + this.name);
+        console.log(`Department (${this.id}): ${this.name}`);
     }
 
     addEmployee(employee: string) {
@@ -22,13 +27,10 @@ class Department {
     }
 }
 
-const accounting = new Department('Accounting');
+const accounting = new Department('d1', 'New Game');
 
 accounting.addEmployee('Max')
 accounting.addEmployee('Manu')
-
-// 外部(クラスの外部も含む)から直接変更できてしまう
-// accounting.employees[2] = 'Anna'
 
 accounting.describe()
 accounting.printEmployeeInformation();
