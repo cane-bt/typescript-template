@@ -1,17 +1,8 @@
-// 64. readonlyプロパティ
+// 65.継承
 class Department {
-    // constructorを使用することで省略できる
-    // private id: string
-    // name: string;
-    // privateをつけることで外部からアクセスできないようにできる
     private employees: string[] = [];
 
-    // constructorに初期値を設定するだけで良い
-    constructor(private readonly id: string, public name: string) {
-        // 以下も記述する必要がなくなる
-        // this.id = id;
-        // this.name = name;
-    }
+    constructor(private readonly id: string, public name: string) { }
 
     describe(this: Department) {
         console.log(`Department (${this.id}): ${this.name}`);
@@ -27,13 +18,19 @@ class Department {
     }
 }
 
-const accounting = new Department('d1', 'New Game');
+class ITDepartment extends Department {
+    constructor(id: string, private admins: string[]) {
+        super(id, 'IT')
+        this.admins = admins;
+    }
+}
 
-accounting.addEmployee('Max')
-accounting.addEmployee('Manu')
+const it = new ITDepartment('d1', ['Max']);
 
-accounting.describe()
-accounting.printEmployeeInformation();
+it.addEmployee('Max')
+it.addEmployee('Manu')
 
-// const accountingCopy = { name: 'dummy', describe: accounting.describe }
-// accountingCopy.describe()
+it.describe()
+it.printEmployeeInformation();
+
+console.log(it);
