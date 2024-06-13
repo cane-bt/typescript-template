@@ -5,17 +5,13 @@ class Department {
 
     protected employees: string[] = [];
 
-    // 静的メソッドを追加
     static createEmployee(name: string) {
         return { name: name };
     }
 
-    // constructorはstaticにすることができない
     constructor(private readonly id: string, public name: string) {
-        // staticでないところ(static修飾子が付与されていないところ)からはアクセスできない
-        // console.log(this.fiscalYear);
-        // もしアクセスしたいなら以下のように書く
-        // console.log(Department.fiscalYear);
+        console.log(Department.fiscalYear);
+
     }
 
     describe(this: Department) {
@@ -33,7 +29,8 @@ class Department {
 }
 
 class ITDepartment extends Department {
-    constructor(id: string, private admins: string[]) {
+    admins: string[];
+    constructor(id: string, admins: string[]) {
         super(id, 'IT')
         this.admins = admins;
     }
@@ -60,6 +57,10 @@ class AccountingDepartment extends Department {
     constructor(id: string, private reports: string[]) {
         super(id, 'Accounting')
         this.lastReport = reports[0];
+    }
+
+    describe() {
+        console.log('会計部門 - ID: ' + this.id);
     }
 
     addReport(text: string) {
@@ -105,4 +106,4 @@ accounting.addEmployee('Max')
 accounting.addEmployee('Manu')
 
 accounting.describe()
-accounting.printEmployeeInformation();
+// accounting.printEmployeeInformation();
