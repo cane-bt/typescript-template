@@ -1,9 +1,22 @@
-// 67. Getter & Setter
-//  getter, setterを使えばprivateなプロパティでも外部から読み書きができるようになる。
+// 68. static メソッド & プロパティ
 class Department {
+    // 静的プロパティを追加
+    static fiscalYear = 2020;
+
     protected employees: string[] = [];
 
-    constructor(private readonly id: string, public name: string) { }
+    // 静的メソッドを追加
+    static createEmployee(name: string) {
+        return { name: name };
+    }
+
+    // constructorはstaticにすることができない
+    constructor(private readonly id: string, public name: string) {
+        // staticでないところ(static修飾子が付与されていないところ)からはアクセスできない
+        // console.log(this.fiscalYear);
+        // もしアクセスしたいなら以下のように書く
+        // console.log(Department.fiscalYear);
+    }
 
     describe(this: Department) {
         console.log(`Department (${this.id}): ${this.name}`);
@@ -65,6 +78,10 @@ class AccountingDepartment extends Department {
         this.employees.push(name);
     }
 }
+
+const employee1 = Department.createEmployee('Max')
+console.log(employee1, Department.fiscalYear);
+
 
 const it = new ITDepartment('d1', ['Max']);
 
