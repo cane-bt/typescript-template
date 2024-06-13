@@ -1,4 +1,4 @@
-// 63.プロパティ初期化のショートカット構文
+// 64. readonlyプロパティ
 class Department {
     // constructorを使用することで省略できる
     // private id: string
@@ -7,7 +7,7 @@ class Department {
     private employees: string[] = [];
 
     // constructorに初期値を設定するだけで良い
-    constructor(private id: string, public name: string) {
+    constructor(private readonly id: string, public name: string) {
         // 以下も記述する必要がなくなる
         // this.id = id;
         // this.name = name;
