@@ -1,4 +1,4 @@
-// 69. abstract クラス（抽象クラス）
+// 70. シングルトン & private コンストラクタ
 abstract class Department {
     static fiscalYear = 2020;
 
@@ -12,18 +12,6 @@ abstract class Department {
         console.log(Department.fiscalYear);
     }
 
-    // クラス名にもabstractをつけないと以下のようなエラーが表示される
-    //  Abstract methods can only appear within an abstract class.ts(1244)
-    //  解決するにはclassにabstractをつける
-    // classにabstractをつけるとdescribeに以下のようなエラーが表示される
-    //  Method 'describe' cannot have an implementation because it is marked abstract.ts(1245)
-    //  abstractクラスはメソッドを追加できないということなので以下を行う
-    //      中かっこを削除
-    //      戻り値を指定する
-    // 以下のコードはabstractを付与して以下を強制している
-    //  - メソッド名がdescribeであること
-    //  - thisのオブジェクトはDepartmentクラスかそのサブクラスであること
-    //  - 戻り値がvoidであること
     abstract describe(this: Department): void;
 
     addEmployee(employee: string) {
@@ -36,10 +24,6 @@ abstract class Department {
     }
 }
 
-// 上でabstractが使われると以下のエラーが発生する
-//  Non-abstract class 'ITDepartment' does not implement all abstract members of 'Department'ts(18052)
-//  Non-abstract class 'ITDepartment' does not implement inherited abstract member 'describe' from class 'Department'.
-//  abstractクラスで定義されているdescribeメソッドを追加してあげればエラーがなくなる
 class ITDepartment extends Department {
     admins: string[];
     constructor(id: string, admins: string[]) {
