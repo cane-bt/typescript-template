@@ -1,0 +1,9 @@
+// https://www.udemy.com/course/understanding-typescript-jp/learn/lecture/20179084#overview
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "ms-ceintl.vscode-language-pack-ja",
+    "dbaeumer.vscode-eslint",
+    "christian-kohler.path-intellisense"
+  ]
+}
