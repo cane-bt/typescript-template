@@ -1,9 +1,12 @@
+// https://typescriptbook.jp/tutorials/eslint#typescript%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%99%E3%82%8B
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "outDir": "./dist",
-        "strict": true,
-        "esModuleInterop": true
-    }
+  "compilerOptions": {
+    "types": ["node"],
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+  },
+  "include": ["src"]
 }
