@@ -30,6 +30,8 @@ setup:
 	@make build
 	@make install-packages
 	@make up-background
+stop:
+	docker compose stop
 up:
 	docker compose up
 up-background:
