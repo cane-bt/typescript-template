@@ -7,6 +7,8 @@ logs:
 	docker compose logs -f
 build-no-cache:
 	docker compose build --no-cache
+install-latest-npm:
+	docker compose run app npm install -g npm
 install-packages:
 	docker compose run app npm install
 # https://zenn.dev/boarinclover/articles/a839e8d24ff9c0#:~:text=%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82-,%E5%AE%9F%E8%A1%8C%E4%B8%AD%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%AE%E4%B8%AD%E3%81%AB%E5%85%A5%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82,-%24%20docker%20compose%20exec
@@ -20,6 +22,7 @@ ps:
 reset:
 	@make pulse
 	@make build-no-cache
+	@make install-latest-npm
 	@make install-packages
 	@make up-background
 start:

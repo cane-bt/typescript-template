@@ -1,4 +1,17 @@
 {
+    // https://zenn.dev/yamaden/articles/cfe595439be4cb#%E9%80%A3%E6%90%BA%E8%A8%AD%E5%AE%9A
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "workbench.colorCustomizations": {
       "activityBar.activeBackground": "#2f7c47",
       "activityBar.background": "#2f7c47",
