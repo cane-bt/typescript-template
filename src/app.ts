@@ -1,5 +1,3 @@
-// 83. 交差型
-
 type Admin = {
   name: string;
   priviledges: string[];
@@ -22,4 +20,3 @@ type Combinable = string | number;
 type Numeric = number | boolean;
 
 type Universal = Combinable & Numeric;
-
