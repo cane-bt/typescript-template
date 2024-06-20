@@ -1,4 +1,3 @@
-// 89. オプショナルチェイン
 type Admin = {
   name: string;
   priviledges: string[];
