@@ -1,14 +1,6 @@
-// 85. 判別可能な Union 型
-//    https://www.udemy.com/course/understanding-typescript-jp/learn/lecture/20181510#notes
-
-// 書き方1(descriminated Unions)
-//  各インターフェースに同じ名前のプロパティを定義する
-//      kind, typeなど(自由)
-//  以下のコードではtypeは実際の値ではない
-//      literal型（stringという一般的な型をより絞り込んだ型）
-//  TypeScriptがどの型であるかということを理解できるので
-//      自動補完が利用できる
-//      誤ったcase文やif文が利用された場合すぐにエラーが発生して気付くことができる
+// 86. 型キャスト
+//  TypeScriptでもokがある特定の型であるということをはっきりと明確に推論できない使用する
+//  開発者が知っているその特定の型をTypeScriptに伝えることができる
 interface Bird {
   type: 'bird';
   flyingSpeed: number;
@@ -34,22 +26,22 @@ function moveAnimal(animal: Animal) {
 
 moveAnimal({ type: 'bird', flyingSpeed: 10 });
 
-// 書き方2(type guard)
-//      Animalの種類が増えるごとにif文が増えてしまう
-//      スペスミスが原因でエラーがわからなくなるかも
-//      interfaceを使用しているため instanceof は使えない
-// interface Bird {
-//   flyingSpeed: number;
-// }
-// interface Horse {
-//   runningSpeed: number;
+// ! を使わない書き方
+// const userInputElement = document.getElementById('user-input');
+
+// if (userInputElement) {
+//   (userInputElement as HTMLInputElement).value = 'こんにちは';
 // }
 
-// type Animal = Bird | Horse;
+// ! を使う書き方
+// const paragraph = document.querySelector('message-output');
+// const userInputElement = <HTMLInputElement>(
+//   document.getElementById('user-input')!
+// );
+// userInputElement.value = 'こんにちは';
 
-// function moveAnimal(animal: Animal) {
-//   if ('flyingSpeed' in animal) {
-//     console.log(animal.flyingSpeed);
-//   }
-// }
-// moveAnimal({ type: 'bird', flyingSpeed: 10 });
+// react, jsxで見る書き方(TypeScriptでもok)
+const userInputElement = document.getElementById(
+  'user-input'
+)! as HTMLInputElement;
+userInputElement.value = 'こんにちは';
