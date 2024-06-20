@@ -1,4 +1,4 @@
-// 88. 関数オーバーロード
+// 89. オプショナルチェイン
 type Admin = {
   name: string;
   priviledges: string[];
@@ -35,3 +35,34 @@ function add(a: Combinable, b: Combinable) {
 
 const result = add('hello', ' typescript');
 result.split(' ');
+
+// ネストされたオブジェクト(確実にjobが渡ってくる)
+const fetchedUserData1 = {
+  id: 'u1',
+  name: 'user1',
+  job: { title: 'Developer', description: 'TypeScript' },
+};
+
+console.log(fetchedUserData1.job.title);
+
+// 書き方1
+// ネストされたオブジェクト(jobが渡ってくるか不確定の場合は以下のように書く)
+// const fetchedUserData2 = {
+//   id: 'u1',
+//   name: 'user1',
+//   // job: { title: 'Developer', description: 'TypeScript' },
+// };
+
+// console.log(fetchedUserData2.job && fetchedUserData2.job.title);
+
+// 書き方2
+// オプショナルチェーン
+//    TypeScript3.7以上で使える
+const fetchedUserData3 = {
+  id: 'u1',
+  name: 'user1',
+  // job: { title: 'Developer', description: 'TypeScript' },
+};
+
+// 暫定的にfetchedUserData3を定義しているためエラーを検知しているが本来はこういう書き方
+console.log(fetchedUserData3?.job?.title);
