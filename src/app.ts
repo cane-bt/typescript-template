@@ -65,3 +65,15 @@ const fetchedUserData3 = {
 
 // 暫定的にfetchedUserData3を定義しているためエラーを検知しているが本来はこういう書き方
 console.log(fetchedUserData3?.job?.title);
+
+// const userInput = null;
+
+// const storeData = userInput || 'DEFAULT';
+
+// console.log(storeData);
+
+// const userInput = '';
+const userInput = undefined;
+const storeData = userInput ?? 'DEFAULT';
+
+console.log(storeData);
