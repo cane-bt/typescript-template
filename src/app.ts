@@ -29,3 +29,23 @@ function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
 }
 
 console.log(countAndDescribe('お疲れ様です'));
+
+// 99. "keyof" の制約
+//    以下の場合は関数をエラーなく呼び出せてしまうことが問題
+// function extractAndConvert(obj: object, key: string) {
+//    オブジェクトにkeyがあることは保証されてないのでobj[key]でエラーが表示される
+//   return 'value: ' + obj[key];
+// }
+
+// extractAndConvert({}, 'name');
+// Generic型とkeyofを指定することでkeyがオブジェクトのkeyであることを保証する
+function extractAndConvert<T extends object, U extends keyof T>(
+  obj: T,
+  key: U
+) {
+  return 'value: ' + obj[key];
+}
+
+extractAndConvert({ name: 'Max' }, 'name');
+// 期待通りエラーが検知される
+// extractAndConvert({}, 'name');
